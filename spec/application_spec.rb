@@ -16,17 +16,17 @@ RSpec.describe Application do
           | /about/2     | 83     |
           | /contact     | 81     |
           | /home        | 72     |
-          | /index       | 71     |
           | /help_page/1 | 71     |
+          | /index       | 71     |
           | /about       | 66     |
           +--------------+--------+
           +--------------+---------------+
           | Page         | Unique Visits |
           +--------------+---------------+
+          | /help_page/1 | 20            |
           | /contact     | 20            |
           | /home        | 20            |
           | /index       | 20            |
-          | /help_page/1 | 20            |
           | /about/2     | 19            |
           | /about       | 18            |
           +--------------+---------------+
@@ -49,14 +49,14 @@ RSpec.describe Application do
           +--------------+--------+
           | Page         | Visits |
           +--------------+--------+
-          | /contact     | 1      |
           | /help_page/1 | 1      |
+          | /contact     | 1      |
           +--------------+--------+
           +--------------+---------------+
           | Page         | Unique Visits |
           +--------------+---------------+
-          | /contact     | 1             |
           | /help_page/1 | 1             |
+          | /contact     | 1             |
           +--------------+---------------+
         RESULT
       end
@@ -77,14 +77,14 @@ RSpec.describe Application do
           +--------------+--------+
           | Page         | Visits |
           +--------------+--------+
-          | /contact     | 1      |
           | /help_page/1 | 1      |
+          | /contact     | 1      |
           +--------------+--------+
           +--------------+---------------+
           | Page         | Unique Visits |
           +--------------+---------------+
-          | /contact     | 1             |
           | /help_page/1 | 1             |
+          | /contact     | 1             |
           +--------------+---------------+
         RESULT
       end

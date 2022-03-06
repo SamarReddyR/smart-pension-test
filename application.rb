@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require_relative 'lib/print_service'
+require_relative 'lib/parser_service'
+require_relative 'lib/formatter'
+
 # Starting point of the ruby app
 class Application
   def self.run!(path)
