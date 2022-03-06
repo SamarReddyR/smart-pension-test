@@ -24,6 +24,7 @@ class ParserService < Service
     validate_file!
   end
 
+  # Parses the given file into nested hashes format
   def call
     File.foreach(@path) do |line|
       if valid_line?(line)
@@ -37,11 +38,13 @@ class ParserService < Service
 
   private
 
+  # Returns true if the IP address and page_path in the line are valid
   def valid_line?(line)
     page_path, ip_address = line.split(' ')
     valid_ip?(ip_address) && valid_page_path?(page_path)
   end
 
+  # Updates the results in nested hash format
   def update_results!(page, ip)
     if @results.key?(page)
       @results[page][ip] = @results[page].key?(ip) ? @results[page][ip] + 1 : 1
@@ -50,6 +53,8 @@ class ParserService < Service
     end
   end
 
+  # Validate given file and raises error if file doesn't exist or if file is
+  # not a parse-able type
   def validate_file!
     raise(ArgumentError, TYPE_ERROR) unless parsable_type?
 
@@ -59,6 +64,7 @@ class ParserService < Service
     raise(ArgumentError, file_missing_error)
   end
 
+  # Returns true if page path is valid
   def valid_page_path?(page_path)
     path_regexp = %r{^[/a-zA-Z0-9\-._~]+$}
     return true if page_path.match?(path_regexp)
@@ -67,6 +73,7 @@ class ParserService < Service
     false
   end
 
+  # Returns true if IP address is valid
   def valid_ip?(ip_address)
     ip_regexp = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}/
     return true if ip_address.match?(ip_regexp)
@@ -75,6 +82,7 @@ class ParserService < Service
     false
   end
 
+  # Returns true if provided file is a parse-able type file
   def parsable_type?
     VAILD_TYPES.include?(File.extname(@path))
   end
