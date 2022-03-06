@@ -54,7 +54,8 @@ The general output looks as follows
 # Improvement Suggestions
 * We can think of storing the logs in DB store instead of parsing from the file.
 * We can think of having a more efficient datastructure to store the results, currently I'm using nested hashes to serve the purpose and it looks like below
-    * ```{
+    ```
+    {
         "/page1" => {
             "ip1" => 3,
             "ip2" => 5
@@ -63,4 +64,5 @@ The general output looks as follows
             "ip2" => 4,
             "ip3" => 1
         }
-    }```
+    }
+    ```
