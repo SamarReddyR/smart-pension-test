@@ -1,0 +1,6 @@
+Lint/MissingSuper:
+  Exclude:
+    - 'lib/*service.rb'
+
+Metrics/BlockLength:
+  IgnoredMethods: ['describe', 'context']
